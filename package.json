@@ -1,0 +1,7 @@
+{
+  "name": "tutoring-site",
+  "private": true,
+  "type": "module",
+  "description": "Online maths & science tutoring site: static pages + Vercel functions, Supabase, Stripe. No build step, no dependencies.",
+  "engines": { "node": ">=20" }
+}

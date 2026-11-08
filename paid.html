@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Payment — Maths & Science Tutor</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body class="squared">
+  <main class="narrow">
+    <div class="panel stack">
+      <h1 style="font-size:1.8rem" id="pay-title"></h1>
+      <p id="pay-text"></p>
+      <a class="btn btn-primary" href="/dashboard" data-i18n="pay.back">Go to my classes</a>
+    </div>
+  </main>
+  <script type="module">
+    import { t } from "/assets/app.js";
+    const ok = new URLSearchParams(location.search).get("status") === "success";
+    function show() {
+      document.getElementById("pay-title").textContent = t(ok ? "pay.success.title" : "pay.cancel.title");
+      document.getElementById("pay-text").textContent = t(ok ? "pay.success.text" : "pay.cancel.text");
+    }
+    show();
+    document.addEventListener("langchange", show);
+  </script>
+</body>
+</html>
